@@ -104,7 +104,8 @@ module.exports = {
         langKeyForNull: `en`,
         langKeyDefault: `en`,
         useLangKeyLayout: false,
-        prefixDefault: false
+        prefixDefault: false,
+        pagesPaths: ["/src/pages"]
       }
     },
     "gatsby-plugin-netlify-cms"
