@@ -9,7 +9,7 @@ import FeaturedPost from "../components/FeaturedPost";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
 import { graphql } from "gatsby";
-import { Toolbar, Link } from "@material-ui/core";
+import { Toolbar, Link, Container } from "@material-ui/core";
 import { Link as GatsbyLink } from "gatsby";
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +68,7 @@ export default function Blog({
   const mainFeaturedPost = edges[0].node;
 
   return (
-    <>
+    <Container maxWidth="lg">
       <Toolbar
         component="nav"
         variant="dense"
@@ -103,7 +103,7 @@ export default function Blog({
           social={sidebar.social}
         />
       </Grid>
-    </>
+    </Container>
   );
 }
 

@@ -98,6 +98,15 @@ module.exports = {
         icon: "src/img/logo.png" // This path is relative to the root of the site.
       }
     },
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyForNull: `en`,
+        langKeyDefault: `en`,
+        useLangKeyLayout: false,
+        prefixDefault: false
+      }
+    },
     "gatsby-plugin-netlify-cms"
   ],
   siteMetadata: {

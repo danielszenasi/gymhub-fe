@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Container } from "@material-ui/core";
 import { HTMLContent } from "../components/Main";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
@@ -8,11 +8,11 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <div>
+    <Container maxWidth="lg">
       <Typography variant="h6">{post.frontmatter.title}</Typography>
       <Typography>{post.frontmatter.date}</Typography>
       <HTMLContent content={post.html}></HTMLContent>
-    </div>
+    </Container>
   );
 };
 

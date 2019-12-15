@@ -13,6 +13,7 @@ exports.createPages = async ({ actions, graphql }) => {
             id
             fields {
               slug
+              langKey
             }
             frontmatter {
               tags
@@ -39,7 +40,8 @@ exports.createPages = async ({ actions, graphql }) => {
       ),
       // additional data can be passed via context
       context: {
-        id
+        id,
+        langKey: edge.node.fields.langKey
       }
     });
   });
@@ -64,7 +66,8 @@ exports.createPages = async ({ actions, graphql }) => {
       component: path.resolve(`src/templates/Tags.js`),
       context: {
         tag,
-        tags
+        tags,
+        langKey: "en"
       }
     });
   });
@@ -74,7 +77,8 @@ exports.createPages = async ({ actions, graphql }) => {
     component: path.resolve(`src/templates/Blog.js`),
     // additional data can be passed via context
     context: {
-      tags
+      tags,
+      langKey: "en"
     }
   });
 };

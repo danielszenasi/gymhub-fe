@@ -1,6 +1,6 @@
 import React from "react";
 import FeaturedPost from "../components/FeaturedPost";
-import { Grid, Toolbar, Link } from "@material-ui/core";
+import { Grid, Toolbar, Link, Container } from "@material-ui/core";
 import { graphql } from "gatsby";
 import { Link as GatsbyLink } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
@@ -30,7 +30,7 @@ const Tags = ({ data, pageContext }) => {
   const classes = useStyles();
   const posts = data.allMarkdownRemark.edges;
   return (
-    <>
+    <Container maxWidth="lg">
       <Toolbar
         component="nav"
         variant="dense"
@@ -55,7 +55,7 @@ const Tags = ({ data, pageContext }) => {
           <FeaturedPost key={node.id} post={node} />
         ))}
       </Grid>
-    </>
+    </Container>
   );
 };
 

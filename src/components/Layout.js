@@ -8,8 +8,9 @@ const PageContent = ({ children }) => {
     <React.Fragment>
       <Container maxWidth="lg">
         <Header title="Blog" />
-        <main>{children}</main>
       </Container>
+      <main>{children}</main>
+
       <Footer
         title="Footer"
         description="Something here to give the footer a purpose!"
