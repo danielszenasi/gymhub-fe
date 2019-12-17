@@ -150,14 +150,14 @@ export const pageQuery = graphql`
     }
     landingBg: file(relativePath: { eq: "landing-bg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 610, quality: 80, fit: COVER) {
+        fluid(maxWidth: 1200, quality: 80, fit: COVER) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     mobile: file(relativePath: { eq: "mobile.png" }) {
       childImageSharp {
-        fluid(maxWidth: 610, quality: 80, fit: COVER) {
+        fluid(maxWidth: 400, quality: 80, fit: COVER) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
