@@ -1,6 +1,7 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const _ = require("lodash");
+var slugify = require("slugify");
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -81,17 +82,41 @@ exports.createPages = async ({ actions, graphql }) => {
       langKey: "en"
     }
   });
+
+  const exercises = await graphql(`
+    {
+      gymhub {
+        getExercises {
+          id
+          name
+          slug
+        }
+      }
+    }
+  `);
+
+  exercises.data.gymhub.getExercises.forEach(exercise => {
+    createPage({
+      path: exercise.slug,
+      component: path.resolve(`src/templates/Exercise.js`),
+      context: {
+        id: exercise.id,
+        langKey: "en"
+      }
+    });
+  });
 };
 
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//   const { createNodeField } = actions;
-
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const value = createFilePath({ node, getNode });
-//     createNodeField({
-//       name: `slug`,
-//       node,
-//       value
-//     });
-//   }
-// };
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    GYMHUB_Assignment: {
+      slug: {
+        type: `String`,
+        resolve: object => {
+          const name = slugify(object.name);
+          return `/exercises/${name}`;
+        }
+      }
+    }
+  });
+};

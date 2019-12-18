@@ -45,7 +45,7 @@ export default function Header(props) {
             noWrap
             variant="h5"
             component={GatsbyLink}
-            to=""
+            to="exercises"
             className={classes.toolbarLink}
           >
             Workouts
