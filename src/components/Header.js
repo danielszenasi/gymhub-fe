@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-import Typography from "@material-ui/core/Typography";
 import { Link as GatsbyLink } from "gatsby";
 import { Link } from "@material-ui/core";
 import LanguageSelect from "./LanguageSelect";
@@ -35,7 +34,7 @@ export default function Header(props) {
             noWrap
             variant="h5"
             component={GatsbyLink}
-            to=""
+            to="/"
             className={classes.toolbarLink}
           >
             Home
@@ -45,7 +44,17 @@ export default function Header(props) {
             noWrap
             variant="h5"
             component={GatsbyLink}
-            to="exercises"
+            to="/exercises"
+            className={classes.toolbarLink}
+          >
+            Exercises
+          </Link>
+          <Link
+            color="inherit"
+            noWrap
+            variant="h5"
+            component={GatsbyLink}
+            to="/workouts"
             className={classes.toolbarLink}
           >
             Workouts
@@ -55,7 +64,7 @@ export default function Header(props) {
             noWrap
             variant="h5"
             component={GatsbyLink}
-            to=""
+            to="/"
             className={classes.toolbarLink}
           >
             Trainers
@@ -65,17 +74,7 @@ export default function Header(props) {
             noWrap
             variant="h5"
             component={GatsbyLink}
-            to=""
-            className={classes.toolbarLink}
-          >
-            Gyms
-          </Link>
-          <Link
-            color="inherit"
-            noWrap
-            variant="h5"
-            component={GatsbyLink}
-            to="blog"
+            to="/blog"
             className={classes.toolbarLink}
           >
             Blog

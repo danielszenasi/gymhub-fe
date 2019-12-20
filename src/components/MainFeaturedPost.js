@@ -9,8 +9,6 @@ import BackgroundImage from "gatsby-background-image";
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
     borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,

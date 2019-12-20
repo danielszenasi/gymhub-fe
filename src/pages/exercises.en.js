@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { Grid } from "@material-ui/core";
 import Exercise from "../components/Exercise";
 
@@ -8,14 +8,14 @@ const ExecisesPage = ({ data }) => {
 
   return (
     <Grid container spacing={4}>
-      {exercises.map(({ slug, name, description, bodyParts, url }) => (
+      {exercises.map(({ slug, name, description, bodyParts, imageFile }) => (
         <Exercise
           key={slug}
           slug={slug}
           name={name}
           description={description}
           bodyParts={bodyParts}
-          url={url}
+          imageFile={imageFile}
         />
       ))}
     </Grid>
@@ -35,6 +35,13 @@ export const execisesQuery = graphql`
         url
         bodyParts
         categories
+        imageFile {
+          childImageSharp {
+            fluid(maxWidth: 160) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

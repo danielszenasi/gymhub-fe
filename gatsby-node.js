@@ -1,7 +1,8 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const _ = require("lodash");
-var slugify = require("slugify");
+const slugify = require("slugify");
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -105,9 +106,40 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     });
   });
+
+  const workouts = await graphql(`
+    {
+      gymhub {
+        getWorkouts(type: GLOBAL) {
+          id
+          name
+          slug
+        }
+      }
+    }
+  `);
+
+  workouts.data.gymhub.getWorkouts.forEach(workout => {
+    createPage({
+      path: workout.slug,
+      component: path.resolve(`src/templates/Workout.js`),
+      context: {
+        id: workout.id,
+        langKey: "en"
+      }
+    });
+  });
 };
 
-exports.createResolvers = ({ createResolvers }) => {
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter
+}) => {
+  const { createNode } = actions;
   createResolvers({
     GYMHUB_Assignment: {
       slug: {
@@ -115,6 +147,28 @@ exports.createResolvers = ({ createResolvers }) => {
         resolve: object => {
           const name = slugify(object.name);
           return `/exercises/${name}`;
+        }
+      },
+      imageFile: {
+        type: `File`,
+        resolve: object => {
+          return createRemoteFileNode({
+            url: object.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          });
+        }
+      }
+    },
+    GYMHUB_AssignmentGroup: {
+      slug: {
+        type: `String`,
+        resolve: object => {
+          const name = slugify(object.name);
+          return `/workouts/${name}`;
         }
       }
     }

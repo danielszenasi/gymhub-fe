@@ -6,10 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Hidden from "@material-ui/core/Hidden";
 import { Link } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
 
 const useStyles = makeStyles({
   card: {
@@ -17,24 +14,12 @@ const useStyles = makeStyles({
   },
   cardDetails: {
     flex: 1
-  },
-  cardMedia: {
-    width: 160
-  },
-  cardMediaImage: {
-    width: "100%",
-    height: "100%",
-    backgroundPosition: "bottom center",
-    backgroundRepeat: "repeat-y",
-    backgroundSize: "cover",
-    color: "white",
-    padding: "8px 24px"
   }
 });
 
-export default function Exercise(props) {
+export default function Workout(props) {
   const classes = useStyles();
-  const { name, imageFile, slug, description, bodyParts } = props;
+  const { slug, name, categories, bodyParts } = props;
 
   return (
     <Grid item xs={12} md={6}>
@@ -45,11 +30,12 @@ export default function Exercise(props) {
               <Typography component="h2" variant="h5">
                 {name}
               </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {description}
+
+              <Typography variant="subtitle1" paragraph>
+                {categories.join(", ")}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {bodyParts}
+                {bodyParts.join(", ")}
               </Typography>
 
               <Typography variant="subtitle1" color="primary">
@@ -57,26 +43,15 @@ export default function Exercise(props) {
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
-            <CardMedia
-              className={classes.cardMedia}
-              children={
-                <BackgroundImage
-                  Tag="section"
-                  className={classes.cardMediaImage}
-                  fluid={imageFile.childImageSharp.fluid}
-                  backgroundColor={`#040e18`}
-                ></BackgroundImage>
-              }
-              title={name}
-            />
-          </Hidden>
         </Card>
       </CardActionArea>
     </Grid>
   );
 }
 
-Exercise.propTypes = {
-  post: PropTypes.object
+Workout.propTypes = {
+  slug: PropTypes.string,
+  name: PropTypes.string,
+  categories: PropTypes.array,
+  bodyParts: PropTypes.array
 };
