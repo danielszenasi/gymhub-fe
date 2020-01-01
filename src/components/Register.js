@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { CircularProgress } from "@material-ui/core";
+import Layout from "./Layout";
 
 const SIGNUP_BY_INVITE = gql`
   mutation SignupByInvite(
@@ -94,7 +95,7 @@ export const Register = ({ email, token }) => {
   if (error) return <p>An error occurred</p>;
 
   return (
-    <h2>
+    <Layout>
       <form
         className={classes.root}
         noValidate
@@ -135,6 +136,6 @@ export const Register = ({ email, token }) => {
           )}
         </div>
       </form>
-    </h2>
+    </Layout>
   );
 };

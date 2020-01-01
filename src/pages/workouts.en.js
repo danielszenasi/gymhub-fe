@@ -2,22 +2,25 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Grid } from "@material-ui/core";
 import Workout from "../components/Workout";
+import Layout from "../components/Layout";
 
 const WorkoutsPage = ({ data }) => {
   const workouts = data.gymhub.getWorkouts;
 
   return (
-    <Grid container spacing={4}>
-      {workouts.map(({ slug, nameEn, categories, bodyParts }) => (
-        <Workout
-          key={slug}
-          slug={slug}
-          name={nameEn}
-          categories={categories.map(item => item.nameEn)}
-          bodyParts={bodyParts.map(item => item.nameEn)}
-        />
-      ))}
-    </Grid>
+    <Layout>
+      <Grid container spacing={4}>
+        {workouts.map(({ slug, nameEn, categories, bodyParts }) => (
+          <Workout
+            key={slug}
+            slug={slug}
+            name={nameEn}
+            categories={categories.map(item => item.nameEn)}
+            bodyParts={bodyParts.map(item => item.nameEn)}
+          />
+        ))}
+      </Grid>
+    </Layout>
   );
 };
 

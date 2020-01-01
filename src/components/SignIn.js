@@ -6,6 +6,7 @@ import { Link as GatsbyLink } from "gatsby";
 import gql from "graphql-tag";
 import { useApolloClient, useMutation } from "@apollo/react-hooks";
 import { CircularProgress } from "@material-ui/core";
+import Layout from "./Layout";
 
 const schema = {
   email: {
@@ -199,77 +200,79 @@ const SignIn = props => {
   if (error) return <p>An error occurred</p>;
 
   return (
-    <div className={classes.root}>
-      <Grid className={classes.grid} container>
-        <Grid className={classes.content} item md={12} xs={12}>
-          <div className={classes.content}>
-            <div className={classes.contentBody}>
-              <form className={classes.form} onSubmit={handleSignIn}>
-                <Typography className={classes.title} variant="h2">
-                  Sign in
-                </Typography>
+    <Layout>
+      <div className={classes.root}>
+        <Grid className={classes.grid} container>
+          <Grid className={classes.content} item md={12} xs={12}>
+            <div className={classes.content}>
+              <div className={classes.contentBody}>
+                <form className={classes.form} onSubmit={handleSignIn}>
+                  <Typography className={classes.title} variant="h2">
+                    Sign in
+                  </Typography>
 
-                <TextField
-                  className={classes.textField}
-                  error={hasError("email")}
-                  fullWidth
-                  helperText={
-                    hasError("email") ? formState.errors.email[0] : null
-                  }
-                  label="Email address"
-                  name="email"
-                  onChange={handleChange}
-                  type="text"
-                  value={formState.values.email || ""}
-                  variant="outlined"
-                />
-                <TextField
-                  className={classes.textField}
-                  error={hasError("password")}
-                  fullWidth
-                  helperText={
-                    hasError("password") ? formState.errors.password[0] : null
-                  }
-                  label="Password"
-                  name="password"
-                  onChange={handleChange}
-                  type="password"
-                  value={formState.values.password || ""}
-                  variant="outlined"
-                />
-                <div className={classes.wrapper}>
-                  <Button
-                    className={classes.signInButton}
-                    color="primary"
-                    disabled={!formState.isValid}
+                  <TextField
+                    className={classes.textField}
+                    error={hasError("email")}
                     fullWidth
-                    size="large"
-                    type="submit"
-                    variant="contained"
-                    disabled={loading}
-                  >
-                    Register
-                  </Button>
-                  {loading && (
-                    <CircularProgress
-                      size={24}
-                      className={classes.buttonProgress}
-                    />
-                  )}
-                </div>
+                    helperText={
+                      hasError("email") ? formState.errors.email[0] : null
+                    }
+                    label="Email address"
+                    name="email"
+                    onChange={handleChange}
+                    type="text"
+                    value={formState.values.email || ""}
+                    variant="outlined"
+                  />
+                  <TextField
+                    className={classes.textField}
+                    error={hasError("password")}
+                    fullWidth
+                    helperText={
+                      hasError("password") ? formState.errors.password[0] : null
+                    }
+                    label="Password"
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    value={formState.values.password || ""}
+                    variant="outlined"
+                  />
+                  <div className={classes.wrapper}>
+                    <Button
+                      className={classes.signInButton}
+                      color="primary"
+                      disabled={!formState.isValid}
+                      fullWidth
+                      size="large"
+                      type="submit"
+                      variant="contained"
+                      disabled={loading}
+                    >
+                      Register
+                    </Button>
+                    {loading && (
+                      <CircularProgress
+                        size={24}
+                        className={classes.buttonProgress}
+                      />
+                    )}
+                  </div>
 
-                <Typography color="textSecondary" variant="body1">
-                  Don't have an account?{" "}
-                  <Link component={GatsbyLink} to="/sign-up" variant="h6">
-                    Sign up
-                  </Link>
-                </Typography>
-              </form>
+                  <Typography color="textSecondary" variant="body1">
+                    Don't have an account?{" "}
+                    <Link component={GatsbyLink} to="/sign-up" variant="h6">
+                      Sign up
+                    </Link>
+                  </Typography>
+                </form>
+              </div>
             </div>
-          </div>
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
+      </div>
+    </Layout>
   );
 };
 
