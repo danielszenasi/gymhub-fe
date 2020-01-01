@@ -44,13 +44,6 @@ module.exports = {
         url: "https://gymbo-athletics.herokuapp.com/"
       }
     },
-
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout`)
-      }
-    },
     {
       resolve: `gatsby-plugin-netlify-cms-paths`,
       options: {

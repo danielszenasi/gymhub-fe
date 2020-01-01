@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container, Typography, Grid } from "@material-ui/core";
 import Img from "gatsby-image";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
+import Layout from "../components/Layout";
 
 const useStyles = makeStyles(theme => ({
   langingBg: { height: "100vh" },
@@ -114,13 +115,15 @@ const IndexPage = ({
     mobile
   }
 }) => (
-  <IndexPageTemplate
-    heading={heading}
-    landingBg={landingBg}
-    mobile={mobile}
-    redirectButtonText={redirectButtonText}
-    langKey={langKey}
-  />
+  <Layout>
+    <IndexPageTemplate
+      heading={heading}
+      landingBg={landingBg}
+      mobile={mobile}
+      redirectButtonText={redirectButtonText}
+      langKey={langKey}
+    />
+  </Layout>
 );
 
 IndexPage.propTypes = {

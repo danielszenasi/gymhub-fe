@@ -7,6 +7,7 @@ import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
+import Layout from "../components/Layout";
 
 const useStyles = makeStyles(theme => ({}));
 
@@ -21,12 +22,12 @@ const Workout = ({ data }) => {
       return {
         ...acc,
         [assignmentHistory.assignment.id]: {
-          name: assignmentHistory.assignment.name,
+          name: assignmentHistory.assignment.nameEn,
           url: assignmentHistory.assignment.url,
           slug: assignmentHistory.assignment.slug,
-          executed: [
-            ...acc[assignmentHistory.assignment.id].executed,
-            assignmentHistory.executed
+          executions: [
+            ...acc[assignmentHistory.assignment.id].executions,
+            assignmentHistory.executions
           ]
         }
       };
@@ -34,58 +35,56 @@ const Workout = ({ data }) => {
     return {
       ...acc,
       [assignmentHistory.assignment.id]: {
-        name: assignmentHistory.assignment.name,
+        name: assignmentHistory.assignment.nameEn,
         url: assignmentHistory.assignment.url,
         slug: assignmentHistory.assignment.slug,
-        executed: [assignmentHistory.executed]
+        executions: [assignmentHistory.executions]
       }
     };
   }, {});
 
-  //   const execises2 = workout.assignmentHistories.reduce((acc, assignmentHistory) => {
-
-  //     return {
-  //       ...acc,
-  //       [assignmentHistory.assignment.id]: { name: assignmentHistory.assignment.name}
-  //     };
-  //   }, {});
-
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h6">{workout.name}</Typography>
-      <List className={classes.root}>
-        {Object.keys(group).map(id => (
-          <>
-            <ListItem
-              alignItems="flex-start"
-              button
-              component={Link}
-              to={group[id].slug}
-            >
-              <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src={group[id].url} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={group[id].name}
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="body2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      {`${group[id].executed.length} Sets | ${group[id].executed[0].Reps} Reps`}
-                    </Typography>
-                  </React.Fragment>
-                }
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-          </>
-        ))}
-      </List>
-    </Container>
+    <Layout>
+      <Container maxWidth="lg">
+        <Typography variant="h6">{workout.name}</Typography>
+        <List className={classes.root}>
+          {Object.keys(group).map(id => (
+            <>
+              <ListItem
+                alignItems="flex-start"
+                button
+                component={Link}
+                to={group[id].slug}
+              >
+                <ListItemAvatar>
+                  <Avatar alt="Remy Sharp" src={group[id].url} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={group[id].name}
+                  secondary={
+                    <React.Fragment>
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        className={classes.inline}
+                        color="textPrimary"
+                      >
+                        {`${group[id].executions.length} Sets | ${group[
+                          id
+                        ].executions[0]
+                          .map(item => `${item.value} ${item.measure.nameEn}`)
+                          .join(" | ")}`}
+                      </Typography>
+                    </React.Fragment>
+                  }
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+            </>
+          ))}
+        </List>
+      </Container>
+    </Layout>
   );
 };
 
@@ -95,19 +94,30 @@ export const pageQuery = graphql`
   query WorkoutByID($id: ID!) {
     gymhub {
       getWorkout(id: $id) {
-        name
-        note
-        categories
-        bodyParts
+        nameEn
+        noteEn
+        categories {
+          id
+          nameEn
+        }
+        bodyParts {
+          id
+          nameEn
+        }
         assignmentHistories {
           id
           assignment {
             id
-            name
+            nameEn
             url
             slug
           }
-          executed
+          executions {
+            value
+            measure {
+              nameEn
+            }
+          }
         }
       }
     }

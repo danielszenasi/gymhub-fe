@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Container, makeStyles } from "@material-ui/core";
 import { graphql } from "gatsby";
+import Layout from "../components/Layout";
 
 const useStyles = makeStyles(theme => ({
   image: { maxHeight: "400px" }
@@ -12,17 +13,19 @@ const Exercise = ({ data }) => {
     gymhub: { getExercise: exercise }
   } = data;
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h6">{exercise.name}</Typography>
-      <Typography variant="subtitle1">
-        {exercise.bodyParts.join(", ")}
-      </Typography>
-      <Typography variant="subtitle2">
-        {exercise.categories.join(", ")}
-      </Typography>
-      <img src={exercise.url} className={classes.image}></img>
-      <Typography variant="body1">{exercise.description}</Typography>
-    </Container>
+    <Layout>
+      <Container maxWidth="lg">
+        <Typography variant="h6">{exercise.nameEn}</Typography>
+        <Typography variant="subtitle1">
+          {exercise.bodyParts.map(item => item.nameEn).join(", ")}
+        </Typography>
+        <Typography variant="subtitle2">
+          {exercise.categories.map(item => item.nameEn).join(", ")}
+        </Typography>
+        <img src={exercise.url} className={classes.image}></img>
+        <Typography variant="body1">{exercise.descriptionEn}</Typography>
+      </Container>
+    </Layout>
   );
 };
 
@@ -33,11 +36,17 @@ export const pageQuery = graphql`
     gymhub {
       getExercise(id: $id) {
         id
-        name
-        description
+        nameEn
+        descriptionEn
         url
-        bodyParts
-        categories
+        bodyParts {
+          id
+          nameEn
+        }
+        categories {
+          id
+          nameEn
+        }
       }
     }
   }

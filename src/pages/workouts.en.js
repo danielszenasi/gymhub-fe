@@ -8,13 +8,13 @@ const WorkoutsPage = ({ data }) => {
 
   return (
     <Grid container spacing={4}>
-      {workouts.map(({ slug, name, categories, bodyParts }) => (
+      {workouts.map(({ slug, nameEn, categories, bodyParts }) => (
         <Workout
           key={slug}
           slug={slug}
-          name={name}
-          categories={categories}
-          bodyParts={bodyParts}
+          name={nameEn}
+          categories={categories.map(item => item.nameEn)}
+          bodyParts={bodyParts.map(item => item.nameEn)}
         />
       ))}
     </Grid>
@@ -28,10 +28,16 @@ export const workoutsQuery = graphql`
     gymhub {
       getWorkouts(type: GLOBAL) {
         id
-        name
+        nameEn
         slug
-        categories
-        bodyParts
+        categories {
+          id
+          nameEn
+        }
+        bodyParts {
+          id
+          nameEn
+        }
       }
     }
   }

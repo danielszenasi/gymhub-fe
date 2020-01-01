@@ -8,16 +8,18 @@ const ExecisesPage = ({ data }) => {
 
   return (
     <Grid container spacing={4}>
-      {exercises.map(({ slug, name, description, bodyParts, imageFile }) => (
-        <Exercise
-          key={slug}
-          slug={slug}
-          name={name}
-          description={description}
-          bodyParts={bodyParts}
-          imageFile={imageFile}
-        />
-      ))}
+      {exercises.map(
+        ({ slug, nameEn, descriptionEn, bodyParts, imageFile }) => (
+          <Exercise
+            key={slug}
+            slug={slug}
+            name={nameEn}
+            description={descriptionEn}
+            bodyParts={bodyParts.map(item => item.nameEn)}
+            imageFile={imageFile}
+          />
+        )
+      )}
     </Grid>
   );
 };
@@ -30,11 +32,17 @@ export const execisesQuery = graphql`
       getExercises {
         slug
         id
-        name
-        description
+        nameEn
+        descriptionEn
         url
-        bodyParts
-        categories
+        bodyParts {
+          id
+          nameEn
+        }
+        categories {
+          id
+          nameEn
+        }
         imageFile {
           childImageSharp {
             fluid(maxWidth: 160) {

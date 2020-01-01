@@ -37,10 +37,6 @@ export default function Workout(props) {
               <Typography variant="subtitle1" paragraph>
                 {bodyParts.join(", ")}
               </Typography>
-
-              <Typography variant="subtitle1" color="primary">
-                Continue reading...
-              </Typography>
             </CardContent>
           </div>
         </Card>

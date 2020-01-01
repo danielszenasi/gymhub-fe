@@ -3,9 +3,9 @@ import Header from "./Header";
 import Footer from "../components/Footer";
 import Container from "@material-ui/core/Container";
 
-const PageContent = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <React.Fragment>
+    <div>
       <Container maxWidth="lg">
         <Header title="Blog" />
       </Container>
@@ -15,8 +15,8 @@ const PageContent = ({ children }) => {
         title="Footer"
         description="Something here to give the footer a purpose!"
       />
-    </React.Fragment>
+    </div>
   );
 };
 
-export default PageContent;
+export default Layout;

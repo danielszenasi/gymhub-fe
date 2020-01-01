@@ -4,6 +4,7 @@ import { Grid, Toolbar, Link, Container } from "@material-ui/core";
 import { graphql } from "gatsby";
 import { Link as GatsbyLink } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
+import Layout from "../components/Layout";
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -30,32 +31,34 @@ const Tags = ({ data, pageContext }) => {
   const classes = useStyles();
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Container maxWidth="lg">
-      <Toolbar
-        component="nav"
-        variant="dense"
-        className={classes.toolbarSecondary}
-      >
-        {pageContext.tags.map(tag => (
-          <Link
-            color="inherit"
-            noWrap
-            key={tag}
-            variant="body2"
-            component={GatsbyLink}
-            to={`tags/${tag}`}
-            className={classes.toolbarLink}
-          >
-            {tag}
-          </Link>
-        ))}
-      </Toolbar>
-      <Grid container spacing={4}>
-        {posts.map(({ node }) => (
-          <FeaturedPost key={node.id} post={node} />
-        ))}
-      </Grid>
-    </Container>
+    <Layout>
+      <Container maxWidth="lg">
+        <Toolbar
+          component="nav"
+          variant="dense"
+          className={classes.toolbarSecondary}
+        >
+          {pageContext.tags.map(tag => (
+            <Link
+              color="inherit"
+              noWrap
+              key={tag}
+              variant="body2"
+              component={GatsbyLink}
+              to={`tags/${tag}`}
+              className={classes.toolbarLink}
+            >
+              {tag}
+            </Link>
+          ))}
+        </Toolbar>
+        <Grid container spacing={4}>
+          {posts.map(({ node }) => (
+            <FeaturedPost key={node.id} post={node} />
+          ))}
+        </Grid>
+      </Container>
+    </Layout>
   );
 };
 

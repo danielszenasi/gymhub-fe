@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import { Link as GatsbyLink } from "gatsby";
-import { Link } from "@material-ui/core";
+import { Link as GatsbyLink, navigate } from "gatsby";
+import { Link, IconButton } from "@material-ui/core";
 import LanguageSelect from "./LanguageSelect";
+import { useQuery, useApolloClient } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -18,11 +25,43 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
     display: "flex",
     justifyContent: "space-around"
+  },
+  menu: {
+    zIndex: 1
   }
 }));
 
-export default function Header(props) {
+const IS_LOGGED_IN = gql`
+  query IsUserLoggedIn {
+    isLoggedIn @client
+  }
+`;
+
+export default function Header() {
   const classes = useStyles();
+
+  const { data } = useQuery(IS_LOGGED_IN);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
+  const client = useApolloClient();
+  const handleToggle = () => {
+    setOpen(prevOpen => !prevOpen);
+  };
+
+  const handleClose = event => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
 
   return (
     <React.Fragment>
@@ -82,12 +121,74 @@ export default function Header(props) {
         </div>
         <LanguageSelect></LanguageSelect>
 
-        <IconButton>
+        {/* <IconButton>
           <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
+        </IconButton> */}
+        {data.isLoggedIn ? (
+          <div className={classes.menu}>
+            <IconButton
+              ref={anchorRef}
+              aria-controls={open ? "menu-list-grow" : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle}
+              aria-label="profile"
+              className={classes.margin}
+            >
+              <AccountCircleIcon />
+            </IconButton>
+            <Popper
+              open={open}
+              anchorEl={anchorRef.current}
+              role={undefined}
+              transition
+              disablePortal
+            >
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin:
+                      placement === "bottom" ? "center top" : "center bottom"
+                  }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList
+                        autoFocusItem={open}
+                        id="menu-list-grow"
+                        onKeyDown={handleListKeyDown}
+                      >
+                        <MenuItem onClick={handleClose}>Clients</MenuItem>
+                        <MenuItem component={GatsbyLink} to={"/app/history"}>
+                          History
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>Calendar</MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            client.writeData({ data: { isLoggedIn: false } });
+                            localStorage.clear();
+                            navigate("/");
+                          }}
+                        >
+                          Logout
+                        </MenuItem>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+          </div>
+        ) : (
+          <Button
+            component={GatsbyLink}
+            to="/app/login"
+            variant="outlined"
+            size="small"
+          >
+            Login
+          </Button>
+        )}
       </Toolbar>
     </React.Fragment>
   );

@@ -5,6 +5,8 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import MainFeaturedPost from "../components/MainFeaturedPost";
+import Layout from "../components/Layout";
+
 import FeaturedPost from "../components/FeaturedPost";
 import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
@@ -68,42 +70,44 @@ export default function Blog({
   const mainFeaturedPost = edges[0].node;
 
   return (
-    <Container maxWidth="lg">
-      <Toolbar
-        component="nav"
-        variant="dense"
-        className={classes.toolbarSecondary}
-      >
-        {pageContext.tags.map(tag => (
-          <Link
-            color="inherit"
-            noWrap
-            key={tag}
-            variant="body2"
-            component={GatsbyLink}
-            to={`tags/${tag}`}
-            className={classes.toolbarLink}
-          >
-            {tag}
-          </Link>
-        ))}
-      </Toolbar>
-      <MainFeaturedPost post={mainFeaturedPost} />
-      <Grid container spacing={4}>
-        {edges.map(({ node }) => (
-          <FeaturedPost key={node.fields.slug} post={node} />
-        ))}
-      </Grid>
-      <Grid container spacing={5} className={classes.mainGrid}>
-        <Main title="From the firehose" posts={edges} />
-        <Sidebar
-          title={sidebar.title}
-          description={sidebar.description}
-          archives={sidebar.archives}
-          social={sidebar.social}
-        />
-      </Grid>
-    </Container>
+    <Layout>
+      <Container maxWidth="lg">
+        <Toolbar
+          component="nav"
+          variant="dense"
+          className={classes.toolbarSecondary}
+        >
+          {pageContext.tags.map(tag => (
+            <Link
+              color="inherit"
+              noWrap
+              key={tag}
+              variant="body2"
+              component={GatsbyLink}
+              to={`tags/${tag}`}
+              className={classes.toolbarLink}
+            >
+              {tag}
+            </Link>
+          ))}
+        </Toolbar>
+        <MainFeaturedPost post={mainFeaturedPost} />
+        <Grid container spacing={4}>
+          {edges.map(({ node }) => (
+            <FeaturedPost key={node.fields.slug} post={node} />
+          ))}
+        </Grid>
+        <Grid container spacing={5} className={classes.mainGrid}>
+          <Main title="From the firehose" posts={edges} />
+          <Sidebar
+            title={sidebar.title}
+            description={sidebar.description}
+            archives={sidebar.archives}
+            social={sidebar.social}
+          />
+        </Grid>
+      </Container>
+    </Layout>
   );
 }
 

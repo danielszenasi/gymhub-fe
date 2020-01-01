@@ -89,7 +89,8 @@ exports.createPages = async ({ actions, graphql }) => {
       gymhub {
         getExercises {
           id
-          name
+          nameEn
+          nameHu
           slug
         }
       }
@@ -112,7 +113,8 @@ exports.createPages = async ({ actions, graphql }) => {
       gymhub {
         getWorkouts(type: GLOBAL) {
           id
-          name
+          nameEn
+          nameHu
           slug
         }
       }
@@ -145,7 +147,7 @@ exports.createResolvers = ({
       slug: {
         type: `String`,
         resolve: object => {
-          const name = slugify(object.name);
+          const name = slugify(object.nameEn);
           return `/exercises/${name}`;
         }
       },
@@ -167,10 +169,24 @@ exports.createResolvers = ({
       slug: {
         type: `String`,
         resolve: object => {
-          const name = slugify(object.name);
+          const name = slugify(object.nameEn);
           return `/workouts/${name}`;
         }
       }
     }
   });
+};
+
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
+  // Only update the `/app` page.
+  if (page.path.match(/^\/app/)) {
+    // page.matchPath is a special key that's used for matching pages
+    // with corresponding routes only on the client.
+    page.matchPath = "/app/*";
+    // Update the page.
+    createPage(page);
+  }
 };
