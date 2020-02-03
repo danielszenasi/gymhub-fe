@@ -14,7 +14,7 @@ tags:
 * **Hozzávalók a tésztához**:  \
   120 g zab (darált vagy aprószemű)
 * 250g túró
-* Ízlés szerint: Paradicsomszósz, ketchub vagy tejfölös ala
+* Ízlés szerint: Paradicsomszósz, ketchub vagy tejfölös alap
   Feltét: paradicsom, uborka, sonka, gomba, kukorica, sajt stb.
 * **Elkészítés:**
   Keverj össze 120 g zabot (apró szeműt, vagy daráltat) 250 g túróval. ➡Ez lesz a "tészta". ✅
