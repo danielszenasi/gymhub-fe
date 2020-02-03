@@ -11,6 +11,13 @@ featuredimage: /img/pizza_kesz.jpg
 tags:
   - '#pizza #kitchen #cooking'
 ---
+> Szereted a pizzát, de félsz, hogy túlságosan hízlal?
+>
+> \
+>
+>
+> _Ezt eheted bűntudat nélkül! Gyorsan megvan, nincs bajlódás a kelesztéssel stb._
+
 * **Hozzávalók a tésztához**:  \
   120 g zab (darált vagy aprószemű)
 * 250g túró
