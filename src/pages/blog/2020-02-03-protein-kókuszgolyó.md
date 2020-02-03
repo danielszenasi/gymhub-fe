@@ -11,6 +11,8 @@ featuredimage: /img/image6.jpeg
 tags:
   - '#cooking #kitchen #edinainthekitchen'
 ---
+_Egészséges nasit keresel? A következő recept nem csak egészséges, de nagyon finom is!_
+
 **Hozzávalók** 16 golyóhoz:
 
 * 100 g zabpehely
