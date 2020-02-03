@@ -20,7 +20,7 @@ tags:
   Keverj össze 120 g zabot (apró szeműt, vagy daráltat) 250 g túróval. ➡Ez lesz a "tészta". ✅
   Nyomkodd a formába, amiben majd sütni fogod. Tetszés szerint pakold meg feltétekkel, majd süsd készre.
 * Ilyen egyszerű!✅
-* További nagyszerű receptekért kövessétek Instagrammon @edina_in_the_kitchen
+* További nagyszerű receptekért kövessétek Instagrammon: [@edina_in_the_kitchen](https://www.instagram.com/edina_in_the_kitchen/)
 
 ![](/img/image2.jpeg)
 
