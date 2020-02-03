@@ -24,9 +24,9 @@ Tápanyag darabonként:
 
 * 80 kcal
 * 5,4 g ch
-*  3,1 g fehérje
-*  4,7 g zsír 
+* 3,1 g fehérje
+* 4,7 g zsír 
 
-További nagyszerű receptekért kövessétek Instagrammonhttps://www.instagram.com/edina_in_the_kitchen/
+További nagyszerű receptekért kövessétek Instagrammon: [@edina_in_the_kitchen/](https://www.instagram.com/edina_in_the_kitchen/)
 
 ![](/img/image6.jpeg)
