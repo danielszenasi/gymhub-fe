@@ -16,14 +16,12 @@ tags:
 * 250g túró
 * Ízlés szerint: Paradicsomszósz, ketchub vagy tejfölös ala
   Feltét: paradicsom, uborka, sonka, gomba, kukorica, sajt stb.
-
 * **Elkészítés:**
   Keverj össze 120 g zabot (apró szeműt, vagy daráltat) 250 g túróval. ➡Ez lesz a "tészta". ✅
-
   Nyomkodd a formába, amiben majd sütni fogod. Tetszés szerint pakold meg feltétekkel, majd süsd készre.
-*  Ilyen egyszerű!✅
+* Ilyen egyszerű!✅
 * További nagyszerű receptekért kövessétek Instagrammon @edina_in_the_kitchen
 
-![](/img/image2.jpeg "\"Tészta\"")
+![](/img/image2.jpeg "\\"Tészta\\"")
 
 ![](/img/pizza_kesz2.jpg)
