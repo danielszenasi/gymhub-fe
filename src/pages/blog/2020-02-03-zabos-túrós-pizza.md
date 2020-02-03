@@ -22,6 +22,6 @@ tags:
 * Ilyen egyszerű!✅
 * További nagyszerű receptekért kövessétek Instagrammon @edina_in_the_kitchen
 
-![](/img/image2.jpeg "\\"Tészta\\"")
+![](/img/image2.jpeg)
 
 ![](/img/pizza_kesz2.jpg)
