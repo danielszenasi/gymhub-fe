@@ -8,26 +8,29 @@ featuredimage: /img/84086613_1056344821386887_9087347373163675648_n.jpg
 tags:
   - edina cooking quiche
 ---
-* **Hozzávalók:**\
-    4 tojás
-  \
-    1 gerezd fokhagyma
-  \
-    1 fej hagyma
-  \
-    220 g spenót (fagyasztottat, leveleset használtam)
-  \
-    250 g túró
+**Hozzávalók:**
 
+*   4 tojás
+*  1 gerezd fokhagyma
+*   1 fej hagyma
+*   220 g spenót (fagyasztottat, leveleset használtam)
+*   250 g túró
 
+**.**
 
-* **Elkészítés:**\
-  Mindent keverj össze egy tálba, majd önts egy kerámia sütőformába (tepsibe stb...amid van) és süsd kb 30 percig.
+**Elkészítés:**
 
+* Mindent keverj össze egy tálba, majd önts egy kerámia sütőformába (tepsibe stb...amid van) és süsd kb 30 percig.
 
+.
 
-* **Tápérték:**\
-  8 szeletre szeltem, az össz kcal-ja 680 kcal és 28,5 g ch-t, 74,3 g fehérjét és 29g zsírt tartalmaz
+**Tápérték:**\
+8 szeletre szeltem, az össz kcal-ja 
+
+* 680 kcal
+* 28,5 g ch
+* 74,3 g fehérje
+* 29g zsír
 
 További nagyszerű receptekért kövessétek **Instagrammon**: [@edina_in_the_kitchen](https://www.instagram.com/edina_in_the_kitchen/)
 
