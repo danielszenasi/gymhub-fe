@@ -22,7 +22,7 @@ _Egészséges nasit keresel? A következő recept nem csak egészséges, de nagy
 * 2 tk eritrit
 * 150-200 ml kókusztej (jól formázható legyen) .
 
-Tápanyag darabonként:
+**Tápanyag darabonként:**
 
 * 80 kcal
 * 5,4 g ch
