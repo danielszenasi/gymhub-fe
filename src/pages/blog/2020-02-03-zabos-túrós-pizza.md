@@ -30,9 +30,6 @@ tags:
 
 
 * Ilyen egyszerű!✅
-
-
-
 * További nagyszerű receptekért kövessétek Instagrammon: [@edina_in_the_kitchen](https://www.instagram.com/edina_in_the_kitchen/)
 
 ![](/img/image2.jpeg)
