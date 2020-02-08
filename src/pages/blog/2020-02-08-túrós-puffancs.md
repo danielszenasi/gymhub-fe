@@ -8,19 +8,34 @@ featuredimage: /img/image8.jpeg
 tags:
   - edina puffancs
 ---
-* **Hozzávalók:** \
-  200 g zsírszegény túró \
-   40 g zabpehely\
-  50 g reszelt sajt\
-   1 db tojás
-   só, bors 
-* **Elkészítés:** Alapanyagok összekeverése, tetszőleges elosztása és megformálása. Én 10 db-ot csináltam belőle, majd 20-25 percig sütöttem.
+* **Hozzávalók:**
+   \
+    200 g zsírszegény túró 
+  \
+     40 g zabpehely
+  \
+    50 g reszelt sajt\
+     1 db tojás
+     só, bors 
 
-* **Tápérték darabonként:**\
-   61 kcal\
-  3,4 g ch\
-   5,5 g fehérje\
-  2,8 g zsír
-* További nagyszerű receptekért kövessétek **Instagrammon**: @edina_in_the_kitchen/
+
+
+* **Elkészítés:**
+  Alapanyagok összekeverése, tetszőleges elosztása és megformálása. Én 10 db-ot csináltam belőle, majd 20-25 percig sütöttem.
+
+
+
+* **Tápérték darabonként:**
+  \
+     61 kcal
+  \
+    3,4 g ch\
+     5,5 g fehérje\
+    2,8 g zsír
+
+
+
+* További nagyszerű receptekért köv
+* essétek **Instagrammon**: @edina_in_the_kitchen/
 
 ![](/img/image8.jpeg)
