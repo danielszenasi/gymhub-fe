@@ -23,11 +23,12 @@ tags:
 
 .
 
-* **Tápérték adagonként:** \
-  64 kcal  \
-  3,8 g ch \
-   4,4 g fehérje\
-    3,7 g zsír
+**Tápérték adagonként:** 
+
+* 64 kcal  
+* 3,8 g ch 
+*  4,4 g fehérje
+*   3,7 g zsír
 
 - - -
 
