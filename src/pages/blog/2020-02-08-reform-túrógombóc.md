@@ -8,24 +8,20 @@ featuredimage: /img/image3.jpeg
 tags:
   - edina kitchen cooking túrógomóc
 ---
-* **Hozzávalók:**\
-     250 g túró
-  \
-     50 g zabpehely
-  \
-     75 g darált mák
-  \
-     2 tojás
-  \
-     20 g eritrit
-  \
-     narancs vagy citrom héj
+**Hozzávalók:**
 
+*    250 g túró
+*    50 g zabpehely
+*    75 g darált mák
+*    2 tojás
+*    20 g eritrit
+*    narancs vagy citrom héj
 
+.
 
 * **Elkészítés:**Mindent összegyúrok és 1 órát pihentetem hűtőben. Gombócozom és forró vízben főzöm.
 
-
+.
 
 * **Tápérték adagonként:** \
   64 kcal  \
