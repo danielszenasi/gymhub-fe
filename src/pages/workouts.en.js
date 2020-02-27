@@ -15,8 +15,8 @@ const WorkoutsPage = ({ data }) => {
             key={slug}
             slug={slug}
             name={nameEn}
-            categories={categories.map(item => item.nameEn)}
-            bodyParts={bodyParts.map(item => item.nameEn)}
+            categories={categories ? categories.map(item => item.nameEn) : []}
+            bodyParts={bodyParts ? bodyParts.map(item => item.nameEn) : []}
           />
         ))}
       </Grid>
