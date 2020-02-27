@@ -112,7 +112,8 @@ module.exports = {
         prefixDefault: false
       }
     },
-    "gatsby-plugin-netlify-cms"
+    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-netlify"
   ],
   siteMetadata: {
     title: "Gymhub"

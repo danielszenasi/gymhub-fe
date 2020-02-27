@@ -14,7 +14,9 @@ import Layout from "./Layout";
 import { WorkoutDetails } from "./WorkoutDetails";
 import { Router } from "@reach/router";
 import { navigate } from "gatsby";
-import { Container, Box } from "@material-ui/core";
+import { Box, Icon, ListItemSecondaryAction } from "@material-ui/core";
+import DoneIcon from "@material-ui/icons/Done";
+import UpdateIcon from "@material-ui/icons/Update";
 
 const GET_WORKOUTS = gql`
   query GetWorkouts {
@@ -71,7 +73,7 @@ export const History = () => {
       <Box display="flex">
         <List className={classes.list}>
           {data.getWorkouts.map(
-            ({ id, nameEn, startsAt, bodyParts, user }, index) => {
+            ({ id, nameEn, startsAt, bodyParts, user, state }, index) => {
               const bodyPartsEn = bodyParts.map(item => item.nameEn);
               return (
                 <>
@@ -121,6 +123,11 @@ export const History = () => {
                         </React.Fragment>
                       }
                     />
+                    <ListItemSecondaryAction>
+                      <Icon edge="end" aria-label="delete">
+                        {state === "PLANNED" ? <UpdateIcon /> : <DoneIcon />}
+                      </Icon>
+                    </ListItemSecondaryAction>
                   </ListItem>
                   <Divider variant="inset" component="li" />
                 </>
