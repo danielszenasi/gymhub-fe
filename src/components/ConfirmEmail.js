@@ -40,15 +40,15 @@ export const ConfirmEmail = ({ email, token }) => {
   const classes = useStyles();
 
   const client = useApolloClient();
-  const [signupByInvite, { loading, error }] = useMutation(CONFIRM_EMAIL, {
-    onCompleted({ signupByInvite }) {
-      localStorage.setItem("token", signupByInvite.token);
+  const [confirmEmail, { loading, error }] = useMutation(CONFIRM_EMAIL, {
+    onCompleted({ confirmEmail }) {
+      localStorage.setItem("token", confirmEmail.token);
       client.writeData({ data: { isLoggedIn: true } });
     }
   });
 
   useEffect(() => {
-    signupByInvite({
+    confirmEmail({
       variables: {
         email,
         emailConfirmToken: token
@@ -61,7 +61,7 @@ export const ConfirmEmail = ({ email, token }) => {
 
   return (
     <Layout>
-      <div>Your email was confirmed</div>
+      <div>Thanks for being awesome!</div>
     </Layout>
   );
 };
